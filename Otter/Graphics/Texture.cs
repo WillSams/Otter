@@ -46,6 +46,7 @@ namespace Otter.Graphics
         /// <param name="useCache">Determines if the cache should be checked first.</param>
         public Texture(string source, bool useCache = true)
         {
+            source = FileHandling.GetAbsoluteFilePath(source);
             if (useCache)
             {
                 texture = Textures.Load(source);

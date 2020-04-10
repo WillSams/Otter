@@ -10,10 +10,12 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
+
+      "program": "${workspaceFolder}/Examples/AnimatingSpritemaps/bin/Debug/netcoreapp3.0/AnimatingSpritemaps",
       /*"program": "${workspaceFolder}/Examples/AutoTilingExample/bin/Debug/netcoreapp3.0/AutoTilingExample",*/
       /*"program": "${workspaceFolder}/Examples/Coroutine/bin/Debug/netcoreapp3.0/Couroutine",*/
       /*"program": "${workspaceFolder}/Examples/EditTextBox/bin/Debug/netcoreapp3.0/EditTextBox",*/
-      "program": "${workspaceFolder}/Examples/FlippyFlop/bin/Debug/netcoreapp3.0/FlippyFlop",
+      /*"program": "${workspaceFolder}/Examples/FlippyFlop/bin/Debug/netcoreapp3.0/FlippyFlop",*/
       /*"program": "${workspaceFolder}/Examples/GridCollider/bin/Debug/netcoreapp3.0/GridCollider",*/
       /*"program": "${workspaceFolder}/Examples/OtterPongGame/bin/Debug/netcoreapp3.0/OtterPongGame",*/
       /*"program": "${workspaceFolder}/Examples/PlatformingMovement/bin/Debug/netcoreapp3.0/PlatformingMovement",*/

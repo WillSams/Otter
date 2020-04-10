@@ -256,6 +256,7 @@ namespace Otter.Graphics.Drawables
         /// <param name="clip">Where to clip the texture.</param>
         public Image(string source = null) : base()
         {
+            source = FileHandling.GetAbsoluteFilePath(source);
             SetTexture(new Texture(source));
             Initialize();
         }
