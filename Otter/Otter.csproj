@@ -2,11 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <PackageId>Otter</PackageId>
+    <Version>0.9.6</Version>
+    <IncludeAssets>all</IncludeAssets>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="CONSOLA.TTF" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="otterlogo.png" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="CONSOLA.TTF" CopyToOutputDirectory="Always">
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+      <IncludeInPackage>true</IncludeInPackage>
+    </Content>
+    <Content Include="otterlogo.png" CopyToOutputDirectory="Always">
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+      <IncludeInPackage>true</IncludeInPackage>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
