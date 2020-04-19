@@ -53,10 +53,10 @@ namespace Otter.Components.Controllers
         public Button Left { get { return Button(Controls.Left); } }
         public Button Right { get { return Button(Controls.Right); } }
 
-        public Axis LeftStick { get { return Axis(Controls.LStick); } }
-        public Axis RightStick { get { return Axis(Controls.RStick); } }
-        public Axis DPad { get { return Axis(Controls.DPad); } }
-        public Axis Triggers { get { return Axis(Controls.Triggers); } }
+        public override Axis LeftStick { get { return Axis(Controls.LStick); } }
+        public override Axis RightStick { get { return Axis(Controls.RStick); } }
+        public override Axis DPad { get { return Axis(Controls.DPad); } }
+        public override Axis Triggers { get { return Axis(Controls.Triggers); } }
 
         public ControllerXbox360(params int[] joystickId)
         {

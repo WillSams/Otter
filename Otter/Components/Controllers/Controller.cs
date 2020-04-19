@@ -103,6 +103,11 @@ namespace Otter.Components.Controllers
             }
         }
 
+        public virtual Axis LeftStick { get; }
+        public virtual Axis RightStick { get; }
+        public virtual Axis DPad { get; }
+        public virtual Axis Triggers { get; }
+
         public Controller(params int[] joystickId)
         {
             foreach (var i in joystickId)

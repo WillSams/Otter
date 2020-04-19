@@ -10,6 +10,7 @@ using SFML.Window;
 using SFML.System;
 
 using Otter.Components;
+using Otter.Components.Controllers;
 using Otter.Graphics;
 using Otter.Graphics.Drawables;
 using Otter.Utility;
@@ -1462,9 +1463,10 @@ namespace Otter.Core
         /// </summary>
         /// <param name="name">The name of the Session.</param>
         /// <returns>The Session.</returns>
-        public Session AddSession(string name)
+        public Session AddSession(string name, Controller controller=null)
         {
             Session s = new Session(this, name);
+            s.Controller = controller == null ? new Controller() : controller;
             Sessions.Add(s);
             return s;
         }

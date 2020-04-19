@@ -12,7 +12,7 @@ namespace Specs
         readonly bool youDidIt = true;
 
         [TestInitialize]
-        public void Given()
+        public void When()
         {
             secondValue = firstValue + firstValue;
         }
