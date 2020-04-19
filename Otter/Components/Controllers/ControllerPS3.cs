@@ -17,9 +17,10 @@ namespace Otter.Components.Controllers
         public Button R2 { get { return Button(Controls.R2); } }
         public Button L2 { get { return Button(Controls.L2); } }
 
-        public Axis LeftStick { get { return Axis(Controls.LStick); } }
-        public Axis RightStick { get { return Axis(Controls.RStick); } }
-        public Axis DPad { get { return Axis(Controls.DPad); } }
+        public override Axis LeftStick { get { return Axis(Controls.LStick); } }
+        public override Axis RightStick { get { return Axis(Controls.RStick); } }
+        public override Axis DPad { get { return Axis(Controls.DPad); } }
+        public override Axis Triggers { get { return Axis(Controls.Triggers); } }
 
         public ControllerPS3(params int[] joystickId)
         {
