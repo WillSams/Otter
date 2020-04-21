@@ -67,16 +67,5 @@ namespace AnimatingSpritemaps
         spritemap.Play(Animation.PingPong);
       }
     }
-
-    // Set up an enum to use for the four different animations.
-    enum Animation
-    {
-      WalkUp,
-      WalkDown,
-      WalkLeft,
-      WalkRight,
-      PlayOnce,
-      PingPong
-    }
   }
 }
