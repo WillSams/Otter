@@ -8,14 +8,19 @@ namespace InputExample
     {
         static void Main(string[] args)
         {
-            var playerSessionName = "Player 1";
+            var players = new string[] { "Player 1", "Player 2", "Player 3" };
 
             using(var game = new Game("Input Example"))
             {
                 game.Color = new Color("749ace");
 
-                game.AddSession(playerSessionName);
-                SetupController(game.Session(playerSessionName).Controller);
+                game.AddSession(players[0]);
+                game.AddSession(players[1], new ControllerXbox360());
+                game.AddSession(players[2], new ControllerPS3());
+
+                SetupController(game.Session(players[0]).Controller);
+                SetupController(game.Session(players[1]).Controller);
+                SetupController(game.Session(players[2]).Controller);
 
                 //game.FirstScene = new GameScene();
                 game.Start();
