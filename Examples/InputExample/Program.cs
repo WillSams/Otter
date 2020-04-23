@@ -15,52 +15,49 @@ namespace InputExample
                 game.Color = new Color("749ace");
 
                 game.AddSession(players[0]);
-                game.AddSession(players[1], new ControllerXbox360());
-                game.AddSession(players[2], new ControllerPS3());
+                SetUpController(game.Session(players[0]).Controller);
 
-                SetupController(game.Session(players[0]).Controller);
-                SetupController(game.Session(players[1]).Controller);
-                SetupController(game.Session(players[2]).Controller);
+                game.AddSession(players[1], new ControllerXbox360());
+                SetUpController(game.Session(players[1]).Controller);
+
+                game.AddSession(players[2], new ControllerPS3());
+                SetUpController(game.Session(players[2]).Controller);
 
                 //game.FirstScene = new GameScene();
                 game.Start();
             }
         }
 
-        static void SetupController(Controller controller)
+        private static void SetUpController(Controller controller, int? joyIndex=0) // need to test if index is needed
         {
             var isJoystick = (controller.GetType() == typeof(ControllerXbox360)
                 || controller.GetType() == typeof(ControllerPS3));
 
             controller.Enabled = true;
-            controller.AddButton("Action");
+            controller.AddButton("X");
+            controller.AddButton("Start");
             controller.AddButton("Up");
             controller.AddButton("Down");
             controller.AddButton("Left");
             controller.AddButton("Right");
-            controller.AddButton("Start");
 
             if (isJoystick)
             {
-                //Leftstick/Motion
-                controller.DPad.AddAxis(controller.LeftStick);
-                controller.DPad.AddKeys(new Key[] { Key.Up, Key.Down, Key.Left, Key.Right });
-
-                controller.Button("Action").AddJoyButton(0);  // 'A' on XBox, 'Triangle' on PS
-                controller.Button("Up").AddJoyButton(16);     // Need to test on PS
-                controller.Button("Down").AddJoyButton(17);   // Need to test on PS
-                controller.Button("Left").AddJoyButton(18);   // Need to test on PS
-                controller.Button("Right").AddJoyButton(19);  // Need to test on PS
+                controller.Button("X").AddJoyButton(0);  // 'A' on XBox, 'Triangle' on PS
                 controller.Button("Start").AddJoyButton(7);   // 'Start' on XBox, 'R1' on PS
+                controller.Button("Up").AddAxisButton(AxisButton.YMinus).AddAxisButton(AxisButton.PovYMinus);
+                controller.Button("Down").AddAxisButton(AxisButton.YPlus).AddAxisButton(AxisButton.PovYPlus);
+                controller.Button("Left").AddAxisButton(AxisButton.XMinus).AddAxisButton(AxisButton.PovXMinus);
+                controller.Button("Right").AddAxisButton(AxisButton.XPlus).AddAxisButton(AxisButton.PovXPlus);
             }
             else
             {
-                controller.Button("Action").AddKey(Key.Space);
+                controller.Button("X").AddKey(Key.X);
+                controller.Button("Start").AddKey(Key.Return);
                 controller.Button("Up").AddKey(Key.Up);
                 controller.Button("Down").AddKey(Key.Down);
                 controller.Button("Left").AddKey(Key.Left);
                 controller.Button("Right").AddKey(Key.Right);
-                controller.Button("Start").AddKey(Key.Return);
             }
         }
     }
