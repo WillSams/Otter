@@ -12,6 +12,7 @@ namespace InputExample
 
             using(var game = new Game("Input Example"))
             {
+                game.SetWindowScale(3);
                 game.Color = new Color("749ace");
 
                 game.AddSession(players[0]);
@@ -23,7 +24,12 @@ namespace InputExample
                 game.AddSession(players[2], new ControllerPS3());
                 SetUpController(game.Session(players[2]).Controller);
 
-                //game.FirstScene = new GameScene();
+                game.Color = new Color(0.4f, 0.4f, 0.8f);
+
+                var scene = new Scene();
+                scene.Add(new Player1Entity(game.Session(players[0])));
+                scene.Add(new Player2Entity(game.Session(players[1])));
+                scene.Add(new Player3Entity(game.Session(players[2])));
                 game.Start();
             }
         }
@@ -34,8 +40,8 @@ namespace InputExample
                 || controller.GetType() == typeof(ControllerPS3));
 
             controller.Enabled = true;
-            controller.AddButton("X");
-            controller.AddButton("Start");
+            controller.AddButton("Action1");
+            controller.AddButton("Action2");
             controller.AddButton("Up");
             controller.AddButton("Down");
             controller.AddButton("Left");
@@ -43,8 +49,8 @@ namespace InputExample
 
             if (isJoystick)
             {
-                controller.Button("X").AddJoyButton(0);  // 'A' on XBox, 'Triangle' on PS
-                controller.Button("Start").AddJoyButton(7);   // 'Start' on XBox, 'R1' on PS
+                controller.Button("Action1").AddJoyButton(0);  // 'A' on XBox, 'Triangle' on PS
+                controller.Button("Action2").AddJoyButton(1);  // 'B' on XBox, 'Circle' on PS
                 controller.Button("Up").AddAxisButton(AxisButton.YMinus).AddAxisButton(AxisButton.PovYMinus);
                 controller.Button("Down").AddAxisButton(AxisButton.YPlus).AddAxisButton(AxisButton.PovYPlus);
                 controller.Button("Left").AddAxisButton(AxisButton.XMinus).AddAxisButton(AxisButton.PovXMinus);
@@ -52,8 +58,8 @@ namespace InputExample
             }
             else
             {
-                controller.Button("X").AddKey(Key.X);
-                controller.Button("Start").AddKey(Key.Return);
+                controller.Button("Action1").AddKey(Key.X);
+                controller.Button("Action2").AddKey(Key.C);
                 controller.Button("Up").AddKey(Key.Up);
                 controller.Button("Down").AddKey(Key.Down);
                 controller.Button("Left").AddKey(Key.Left);
