@@ -3,9 +3,9 @@ using Otter.Graphics.Drawables;
 
 namespace InputExample
 {
-    public class AnimatingEntity : Entity
+    public sealed class AnimatingEntity : Entity
     {
-        protected readonly Session _session;
+        private readonly Session _session;
         readonly Spritemap<Animation> _spritemap;
 
         public AnimatingEntity(Session session, string spriteFile, float x, float y) : base(x, y)

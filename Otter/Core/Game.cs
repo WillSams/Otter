@@ -1367,6 +1367,7 @@ namespace Otter.Core
         public void Close()
         {
             Window.Close();
+            Window.SetActive(false);
             Active = false;
         }
 
