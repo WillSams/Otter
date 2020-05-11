@@ -5,7 +5,7 @@ using Otter.Graphics.Drawables;
 
 namespace InputExample
 {
-    class AnimatingEntity : Entity
+    public class AnimatingEntity : Entity
     {
         protected readonly Session _session;
         readonly Spritemap<Animation> _spritemap;
@@ -22,8 +22,6 @@ namespace InputExample
             _spritemap.Add(Animation.PlayOnce, "5,11,17,23,5,11,17,23", 6).NoRepeat();
             _spritemap.Add(Animation.PingPong, "2,8,14,20", 8).PingPong();
 
-            // _spritemap.OriginX = x;
-            //_spritemap.OriginY = y;
             _spritemap.CenterOrigin();
 
             // Play the walking down animation immediately.
