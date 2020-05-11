@@ -1,5 +1,3 @@
-using System;
-
 using Otter.Core;
 using Otter.Graphics.Drawables;
 
@@ -35,37 +33,12 @@ namespace InputExample
             base.Update();
 
             var controller = _session.Controller;
-
-            if (controller.Button("Up").Pressed)
-            {
-                _spritemap.Play(Animation.WalkUp);
-                Console.WriteLine($"Up pressed for {_session.Name}");
-            }
-            if (controller.Button("Down").Pressed)
-            {
-                _spritemap.Play(Animation.WalkDown);
-                Console.WriteLine($"Down pressed for {_session.Name}");
-            }
-            if (controller.Button("Left").Pressed)
-            {
-                _spritemap.Play(Animation.WalkLeft);
-                Console.WriteLine($"Left pressed for {_session.Name}");
-            }
-            if (controller.Button("Right").Pressed)
-            {
-                _spritemap.Play(Animation.WalkRight);
-                Console.WriteLine($"Right pressed for {_session.Name}");
-            }
-            if (controller.Button("Action1").Pressed)
-            {
-                _spritemap.Play(Animation.PlayOnce);
-                Console.WriteLine($"Action1 pressed for {_session.Name}");
-            }
-            if (controller.Button("Action2").Pressed)
-            {
-                _spritemap.Play(Animation.PingPong);
-                Console.WriteLine($"Action2 pressed for {_session.Name}");
-            }
+            if (controller.Button("Up").Pressed) _spritemap.Play(Animation.WalkUp);
+            if (controller.Button("Down").Pressed) _spritemap.Play(Animation.WalkDown);
+            if (controller.Button("Left").Pressed) _spritemap.Play(Animation.WalkLeft);
+            if (controller.Button("Right").Pressed) _spritemap.Play(Animation.WalkRight);
+            if (controller.Button("Action1").Pressed) _spritemap.Play(Animation.PlayOnce);
+            if (controller.Button("Action2").Pressed) _spritemap.Play(Animation.PingPong);
         }
     }
 }
